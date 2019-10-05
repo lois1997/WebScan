@@ -1,0 +1,11 @@
+usage: dirscan [-t] [-a] [-n count] [-l size] [-f] [-i TTL] [-v TOS]
+            [-r count] [-s count] [[-j host-list] | [-k host-list]]
+            [-w timeout] [-R] [-S srcaddr] [-c compartment] [-p]
+            [-4] [-6] target_name
+optional arguments
+    -h,--help      show this help message 
+arguments:
+    -u             scan a target or network(e.g. [http://]google.com, 
+	               192.168.1.1, 192.168.1.1-192.168.1.100)
+	-l LANGUAGE    use specific directory
+    -p PORT        scan appointed ports
