@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
-#include "src\hello.h"
 #include "src\helpcmd.h"
 #include "src\executecmd.h"
+
 /*
 name    长选项的名称，例如"help"
 has_arg 是否带参数，0不带参数，1必须带参数，2参数可选

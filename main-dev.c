@@ -3,7 +3,7 @@
 #include <string.h>
 #include "src\hello.h"
 #include "src\helpcmd.h"
-#include "src\executecmd.h"
+#include "src\printfcmd.h"
 /*
 Option struct:
 name    long parameter name,e.g."help"
@@ -24,11 +24,28 @@ url    target website
 lang   which language the website based on
 port   target ports
 */
-char *url = "https://www.google.com/?gws_rd=ssl"; 
-char *lang = "php";
-char *port = "80,8080,443";
+char *url = "null"; 
+char *lang = "null";
+char *port = "null";
+
+int executeMapping(char *url,char *lang,char *port){
+	char *cmp = "null";
+	if(strcmp(url,cmp) == 0 && strcmp(lang,cmp) == 0 && strcmp(port,cmp) == 0)
+		printHelp();
+	else
+		executeScan();
+}
+
+int executeScan(char *url,char *lang,char *port) {
+	printf("the url is %s\n", url);
+	printf("the lang is %s\n", lang);
+	printf("the port is %s\n", port);
+	return 0;
+}
 
 int main(int argc, char *argv[]){
+	// print welcome content
+	printBanner();
 	// short param
     char *optstr = "u:l:p:hv";    
     // long param
@@ -46,16 +63,13 @@ int main(int argc, char *argv[]){
         	case 'u':
         		// set scan target
                 url = optarg;
-//                printf("url is %s",url); 
             case 'l':
             	// set dev-language of target website
                 lang = optarg;
-//                printf("lang is %s",lang); 
                 break;
 			case 'p':
 				// set scan ports
                 port = optarg;
-//                printf("port is %s",port); 
                 break;
 			case 'h':
 				// print help message
@@ -74,6 +88,6 @@ int main(int argc, char *argv[]){
                 return 1;
         }
     }
-    executeScan(url,lang,port);
+    executeMapping(url,lang,port);
     return 0;
 }
